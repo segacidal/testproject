@@ -2,10 +2,6 @@ class Inventory:
     pass
 
 
-class Item:
-    pass
-
-
 class Monster:
     pass
 
