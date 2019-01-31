@@ -31,6 +31,29 @@ class Armor(ItemBase):
         self.armor_value = armor_value
 
 
+class Potion(ItemBase):
+
+    def __init__(self, name, action, value):
+        super(Potion, self).__init__(name)
+        self.action = action
+        self.value = value
+
+    def use(self, hero):
+        raise NotImplementedError
+
+
+class Scroll(ItemBase):
+
+    def __init__(self, name):
+        super(Scroll, self).__init__(name)
+
+
+class Consumable(ItemBase):
+
+    def __init__(self, name):
+        super(Consumable, self).__init__(name)
+
+
 if __name__ == '__main__':
     w = Weapon('iron blade', 'sword', 35)
     a = Armor('iron helm', 'helmet', 50)
