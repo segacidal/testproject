@@ -8,12 +8,12 @@ class HeroTestCase(unittest.TestCase):
 
     def setUp(self):
         armor_set = [
-            Armor('iron helm', 'helm', 25),
-            Armor('iron pauldrons', 'shoulder', 25),
-            Armor('iron greaves', 'feet', 25)
+            Armor('iron helm', 'Head', 25),
+            Armor('iron pauldrons', 'Shoulders', 25),
+            Armor('iron greaves', 'Feet', 25)
         ]
 
-        self.hero = Hero('clint', 2, 1500, 0, 'monk', armor_set)
+        self.hero = Hero('Clint', 1, 1000, 0, 'Monk', 100, 0, armor_set)
 
     def tearDown(self):
         pass

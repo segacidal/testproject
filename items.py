@@ -1,5 +1,6 @@
 from abc import ABC
 
+from read_config import *
 
 class ItemBase(ABC):
     """
@@ -22,6 +23,9 @@ class Weapon(ItemBase):
         self.weapon_type = weapon_type
         self.damage = damage
 
+        if self.weapon_type not in WEAPON_TYPE_OPTIONS:
+            raise KeyError('No such weapon type: {}'.format(self.weapon_type))
+
 
 class Armor(ItemBase):
 
@@ -29,6 +33,9 @@ class Armor(ItemBase):
         super(Armor, self).__init__(name)
         self.armor_type = armor_type
         self.armor_value = armor_value
+
+        if self.armor_type not in ARMOR_TYPE_OPTIONS:
+            raise KeyError('No such armor type: {}'.format(self.armor_type))
 
 
 class Potion(ItemBase):
@@ -55,7 +62,7 @@ class Consumable(ItemBase):
 
 
 if __name__ == '__main__':
-    w = Weapon('iron blade', 'sword', 35)
-    a = Armor('iron helm', 'helmet', 50)
+    w = Weapon('iron blade', 'Sword', 35)
+    a = Armor('iron helm', 'Head', 50)
     print(w.__dict__)
     print(a.__dict__)

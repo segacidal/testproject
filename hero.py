@@ -1,5 +1,7 @@
 from items import Armor
 
+from read_config import HERO_CLASS_OPTIONS
+
 
 class Hero:
 
@@ -17,6 +19,9 @@ class Hero:
             armor_types = [i.armor_type for i in armor_set]
             if len(armor_types) > len(set(armor_types)):
                 raise ValueError('Can only equip 1 of each armor type!')
+
+        if self.style not in HERO_CLASS_OPTIONS:
+            raise ValueError('No such class: {}'.format(self.style))
 
     def __str__(self):
         return '{}, Lvl: {}, Class: {}'.format(self.name, self.level, self.style)
@@ -83,15 +88,3 @@ class Party:
 
 if __name__ == '__main__':
     pass
-    armor_set = [
-        Armor('iron helm', 'helm', 25),
-        Armor('iron pauldrons', 'shoulder', 25),
-        Armor('iron greaves', 'feet', 25)
-    ]
-
-    h = Hero('clint', 5, 1000, 0, 'monk', 100, 0, armor_set)
-    print(h.armor_value_total)
-
-    p = Party([h, h, h])
-
-    print(p)
